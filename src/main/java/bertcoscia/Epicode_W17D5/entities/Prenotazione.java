@@ -25,9 +25,7 @@ public class Prenotazione {
     @Column(name = "id")
     private UUID idPrenotazione;
     @Column(name = "data_prenotazione")
-    private LocalDateTime dataPrenotazione;
-    @Column(name = "data_fine_prenotazione")
-    private LocalDateTime dataFinePrenotazione;
+    private LocalDate dataPrenotazione;
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
@@ -36,10 +34,7 @@ public class Prenotazione {
     private Postazione postazione;
 
     public Prenotazione(String dataPrenotazione, User user, Postazione postazione) {
-        LocalDate dataPrenotazioneParse = LocalDate.parse(dataPrenotazione);
-        LocalTime orarioInizioPrenotazione = LocalTime.of(8, 30);
-        this.dataPrenotazione = LocalDateTime.of(dataPrenotazioneParse, orarioInizioPrenotazione);
-        this.dataFinePrenotazione = this.dataPrenotazione.plusHours(9);
+        this.dataPrenotazione = LocalDate.parse(dataPrenotazione);
         this.user = user;
         this.postazione = postazione;
     }

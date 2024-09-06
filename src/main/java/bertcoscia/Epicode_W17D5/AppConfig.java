@@ -12,10 +12,6 @@ import java.util.Locale;
 @PropertySource("application.properties")
 public class AppConfig {
     Faker faker = new Faker(Locale.ITALY);
-    @Bean(name = "edificio_roma")
-    public Edificio edificioRomaBean() { return new Edificio("Roma - Colosseo", "Roma", faker.address().fullAddress()); }
 
-    @Bean(name = "edificio_milano")
-    public Edificio edificioMilanoBean() { return new Edificio("Milano - Porta Nuova", "Milano", faker.address().fullAddress()); }
 
 }
