@@ -20,6 +20,9 @@ public class PrenotazioniService {
         if (prenotazioniRepository.existsByDataPrenotazioneAndUser(prenotazione.getDataPrenotazione(), prenotazione.getUser())) {
             throw new ValidationException("L'utente con email " + prenotazione.getUser().getEmail() + " ha già una prenotazione per il giorno " + prenotazione.getDataPrenotazione());
         }
+        if (prenotazioniRepository.existsByDataPrenotazioneAndPostazione(prenotazione.getDataPrenotazione(), prenotazione.getPostazione())) {
+            throw new ValidationException("La postazione è già stata prenotata per la data " + prenotazione.getDataPrenotazione());
+        }
         prenotazioniRepository.save(prenotazione);
         log.info("Prenotazione n. {} salvata correttamente", prenotazione.getIdPrenotazione());
     }
