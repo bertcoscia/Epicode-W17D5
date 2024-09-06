@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.util.UUID;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
@@ -16,9 +15,16 @@ public class Edificio {
     @Column(name = "id")
     @Setter(AccessLevel.NONE)
     private UUID idEdificio;
+    @Column(name = "name", unique = true)
     private String name;
     private String city;
     private String address;
+
+    public Edificio(String name, String city, String address) {
+        this.name = name;
+        this.city = city;
+        this.address = address;
+    }
 
     @Override
     public String toString() {

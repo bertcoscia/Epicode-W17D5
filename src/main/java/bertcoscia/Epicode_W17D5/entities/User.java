@@ -19,7 +19,15 @@ public class User {
     private UUID idUser;
     private String name;
     private String surname;
+    @Column(unique = true)
     private String username;
+    @Column(unique = true)
     private String email;
 
+    public User(String name, String surname, String username, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.email = email;
+    }
 }
