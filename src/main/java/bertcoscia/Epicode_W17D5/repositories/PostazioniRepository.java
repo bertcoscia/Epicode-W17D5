@@ -1,5 +1,6 @@
 package bertcoscia.Epicode_W17D5.repositories;
 
+import bertcoscia.Epicode_W17D5.entities.Edificio;
 import bertcoscia.Epicode_W17D5.entities.Postazione;
 import bertcoscia.Epicode_W17D5.enums.PostazioneTipo;
 import org.hibernate.annotations.Parameter;
@@ -19,4 +20,6 @@ public interface PostazioniRepository extends JpaRepository<Postazione, UUID> {
 
     @Query("SELECT p FROM Postazione p WHERE p.tipoPostazione = :tipoPostazione")
     List<Postazione> filterByType(@Param("tipoPostazione") PostazioneTipo postazioneTipo);
+
+    List<Postazione> findByEdificio(Edificio edificio);
 }

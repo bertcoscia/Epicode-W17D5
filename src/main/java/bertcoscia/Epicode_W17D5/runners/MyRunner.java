@@ -51,7 +51,7 @@ public class MyRunner implements CommandLineRunner {
             System.err.println(e.getMessage());
         }*/
 
-        try {
+        /*try {
             Postazione p1Milano = new Postazione(faker.friends().quote(), PostazioneTipo.PRIVATO, edificiService.findById("8683fad9-eac9-48a2-9304-140ffd723a62"));
             Postazione p2Milano = new Postazione(faker.friends().quote(), PostazioneTipo.OPENSPACE, edificiService.findById("8683fad9-eac9-48a2-9304-140ffd723a62"));
             Postazione p3Milano = new Postazione(faker.friends().quote(), PostazioneTipo.SALA_RIUNIONI, edificiService.findById("8683fad9-eac9-48a2-9304-140ffd723a62"));
@@ -66,14 +66,14 @@ public class MyRunner implements CommandLineRunner {
             postazioniService.save(p3Roma);
         } catch (ValidationException e) {
             System.err.println(e.getMessage());
-        }
+        }*/
 
-        try {
+        /*try {
             Prenotazione p = new Prenotazione("2024-09-07", usersService.findById("aabcf500-f11d-46c1-b55b-77c031d43874"), postazioniService.findById("68b5f863-e048-4be5-b1ea-9b1cf2efb1bc"));
             prenotazioniService.save(p);
         } catch (ValidationException e) {
             System.err.println(e.getMessage());
-        }
+        }*/
 
     }
 }

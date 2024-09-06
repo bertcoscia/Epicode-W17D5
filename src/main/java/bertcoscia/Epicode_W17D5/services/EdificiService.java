@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.ListResourceBundle;
 import java.util.UUID;
 
 @Service
@@ -51,6 +53,18 @@ public class EdificiService {
             log.info("L'edificio cercato non esiste");
         }
         return exists;
+    }
+
+    public List<Edificio> findAll() {
+        List<Edificio> list = edificiRepository.findAll();
+        if (list.isEmpty()) log.info("Non ci sono edifici");
+        return list;
+    }
+
+    public List<Edificio> findByCityIgnoreCase(String city) {
+        List<Edificio> list = edificiRepository.findByCityIgnoreCase(city);
+        if (list.isEmpty()) log.info("Non ci sono edifici a {}", city);
+        return list;
     }
 
 

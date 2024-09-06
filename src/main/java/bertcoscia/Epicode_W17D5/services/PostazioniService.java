@@ -54,5 +54,7 @@ public class PostazioniService {
         postazioniRepository.save(found);
     }
 
+    public List<Postazione> findByCity(String city)
+
 
 }
