@@ -1,12 +1,7 @@
 package bertcoscia.Epicode_W17D5.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -14,15 +9,24 @@ import java.util.UUID;
 @NoArgsConstructor
 @Setter
 @Getter
-@Entity
+@Entity(name = "edifici")
 public class Edificio {
     @Id
-    @GeneratedValue(a)
-    private UUID id;
+    @GeneratedValue
+    @Column(name = "id")
+    @Setter(AccessLevel.NONE)
+    private UUID idEdificio;
     private String name;
     private String city;
     private String address;
 
-
-
+    @Override
+    public String toString() {
+        return "Edificio{" +
+                "id=" + idEdificio +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
